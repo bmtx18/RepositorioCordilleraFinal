@@ -1,0 +1,231 @@
+/* ============================================================
+   DETALLE DE PRODUCTO — usa el design system de index.css
+   ============================================================ */
+
+.detalle-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 5rem;
+  min-height: 70vh;
+  animation: detalleFadeIn 0.3s ease;
+}
+
+@keyframes detalleFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-volver {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-muted);
+  padding: 9px 18px;
+  border-radius: var(--radius);
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s;
+}
+
+.btn-volver:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.detalle-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+@media (max-width: 800px) {
+  .detalle-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── IMAGEN ─────────────────────────────────────────────────── */
+
+.detalle-img {
+  position: relative;
+  background: linear-gradient(145deg, var(--bg3), var(--bg2));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.detalle-img-real {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 2.5rem;
+}
+
+.detalle-emoji {
+  font-size: 7rem;
+}
+
+.badge-stock-bajo,
+.badge-agotado {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+}
+
+.badge-stock-bajo {
+  background: rgba(245, 166, 35, 0.15);
+  border: 1px solid rgba(245, 166, 35, 0.4);
+  color: #f5a623;
+}
+
+.badge-agotado {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+/* ── INFO ───────────────────────────────────────────────────── */
+
+.detalle-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.categoria {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.detalle-info h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0.5rem 0 0.3rem;
+  line-height: 1.15;
+}
+
+.detalle-proveedor {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 1.2rem;
+}
+
+.descripcion {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin-bottom: 1.8rem;
+}
+
+.detalle-precio-box {
+  margin-bottom: 0.6rem;
+}
+
+.detalle-precio-box h2 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.detalle-cuotas {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.detalle-stock {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0.8rem 0 1.5rem;
+}
+
+/* ── CANTIDAD ───────────────────────────────────────────────── */
+
+.detalle-cantidad-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.detalle-cantidad-box > span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.cantidad-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.cantidad-box button {
+  width: 36px;
+  height: 36px;
+  background: var(--bg3);
+  border: none;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.cantidad-box button:hover {
+  background: var(--accent);
+}
+
+.cantidad-box span {
+  width: 44px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+/* ── BOTÓN AGREGAR ──────────────────────────────────────────── */
+
+.btn-agregar-detalle {
+  width: 100%;
+  padding: 16px;
+  font-size: 0.92rem;
+}
+
+/* ── ESTADOS (carga / error) ────────────────────────────────── */
+
+.estado-centro {
+  text-align: center;
+  padding: 6rem 0;
+  color: var(--text-muted);
+}
+
+.spinner {
+  width: 38px;
+  height: 38px;
+  border: 3px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

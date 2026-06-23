@@ -1,0 +1,292 @@
+.dash-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.dash-titulo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 2rem;
+}
+
+.dash-subtitulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.dash-seccion {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.dash-error {
+  background: #f8d7da;
+  color: #842029;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.dash-mensaje {
+  background: #d1e7dd;
+  color: #0f5132;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.dash-vacio {
+  color: #888;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.dash-loading {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* ── Gráfico de barras ─────────────────────────────────── */
+.dash-barras {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1.5rem;
+}
+
+.barra-fila {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.barra-nombre {
+  min-width: 180px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.barra-track {
+  flex: 1;
+  height: 28px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.barra-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.6s ease;
+  min-width: 4px;
+}
+
+.barra-valor {
+  min-width: 130px;
+  font-size: 0.82rem;
+  color: #555;
+  text-align: right;
+}
+
+/* ── Tabla ─────────────────────────────────────────────── */
+.dash-tabla-wrapper {
+  overflow-x: auto;
+}
+
+.dash-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.dash-tabla th {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.dash-tabla td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #333;
+}
+
+.dash-tabla tr:last-child td {
+  border-bottom: none;
+}
+
+.dash-tabla tr:hover td {
+  background: #f9f9f9;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-top {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.badge-bottom {
+  background: #f8d7da;
+  color: #842029;
+}
+
+.badge-medio {
+  background: #e9ecef;
+  color: #666;
+}
+
+/* ── Despachos pendientes ──────────────────────────────── */
+.dash-despachos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.dash-despacho-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #fafafa;
+}
+
+.dash-pedido-id {
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 0.3rem;
+}
+
+.dash-pedido-cliente {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.dash-pedido-total {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #a50034;
+  margin-bottom: 0.8rem;
+}
+
+.btn-asignar {
+  width: 100%;
+  padding: 0.55rem;
+  background: #1a1a2e;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-asignar:hover {
+  background: #2d2d4e;
+}
+
+.dash-asignar select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.btn-cancelar {
+  width: 100%;
+  padding: 0.45rem;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: #666;
+}
+
+/* ── Drivers grid ──────────────────────────────────────── */
+.dash-drivers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.dash-driver-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+  background: #fafafa;
+}
+
+.driver-avatar {
+  width: 52px;
+  height: 52px;
+  background: #1a1a2e;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.7rem;
+}
+
+.driver-card-nombre {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1a1a2e;
+  margin-bottom: 0.2rem;
+}
+
+.driver-card-correo {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+  word-break: break-all;
+}
+
+.driver-card-estado {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.driver-card-estado.activo {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+.driver-card-estado.inactivo {
+  background: #f8d7da;
+  color: #842029;
+}

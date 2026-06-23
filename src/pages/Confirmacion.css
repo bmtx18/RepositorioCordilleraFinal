@@ -1,0 +1,139 @@
+/* ============================================================
+   CONFIRMACIÓN DE COMPRA — usa el design system de index.css
+   ============================================================ */
+
+.confirmacion-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+  min-height: 70vh;
+}
+
+.confirmacion-vacio {
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.confirmacion-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  text-align: center;
+  animation: confirmFadeIn 0.35s ease;
+}
+
+@keyframes confirmFadeIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.confirmacion-check {
+  width: 64px;
+  height: 64px;
+  background: rgba(34, 197, 94, 0.15);
+  border: 2px solid #4ade80;
+  color: #4ade80;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 auto 1.2rem;
+}
+
+.confirmacion-card h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.confirmacion-sub {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.confirmacion-entrega {
+  background: rgba(165, 0, 52, 0.1);
+  border: 1px solid rgba(165, 0, 52, 0.3);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 1.8rem;
+}
+
+.confirmacion-entrega strong {
+  color: var(--accent);
+}
+
+.confirmacion-entrega span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.confirmacion-detalle,
+.confirmacion-direccion {
+  text-align: left;
+  border-top: 1px solid var(--border);
+  padding-top: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.confirmacion-detalle h3,
+.confirmacion-direccion h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.confirmacion-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  padding: 0.4rem 0;
+}
+
+.confirmacion-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px solid var(--border);
+  margin-top: 0.6rem;
+  padding-top: 0.8rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.confirmacion-total strong {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.confirmacion-direccion p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0.2rem 0;
+}
+
+.confirmacion-acciones {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.8rem;
+}
+
+.confirmacion-acciones a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+}

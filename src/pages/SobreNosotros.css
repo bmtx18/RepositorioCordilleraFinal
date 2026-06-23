@@ -1,0 +1,113 @@
+/* ============================================================
+   SOBRE NOSOTROS — usa el design system de index.css
+   ============================================================ */
+
+.sobre-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+.sobre-hero {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+}
+
+.sobre-eyebrow {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  margin-bottom: 14px;
+}
+
+.sobre-hero h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+}
+
+.sobre-accent {
+  color: var(--accent);
+}
+
+.sobre-intro {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+/* ── GRID DE TARJETAS ───────────────────────────────────────── */
+
+.sobre-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 700px) {
+  .sobre-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sobre-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.sobre-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.sobre-icono {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.sobre-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.sobre-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── CTA FINAL ──────────────────────────────────────────────── */
+
+.sobre-cta {
+  text-align: center;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+}
+
+.sobre-cta h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.4rem;
+}
+
+.sobre-cta a {
+  text-decoration: none;
+  display: inline-block;
+}

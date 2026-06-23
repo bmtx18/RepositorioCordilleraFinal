@@ -1,0 +1,244 @@
+.driver-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.driver-titulo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+}
+
+/* Resumen */
+.driver-resumen {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.driver-stat {
+  flex: 1;
+  min-width: 150px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.driver-stat-valor {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #a50034;
+}
+
+.driver-stat-label {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.3rem;
+}
+
+/* Tabs */
+.driver-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.driver-tabs button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #666;
+  border-radius: 6px 6px 0 0;
+  transition: all 0.2s;
+}
+
+.driver-tabs .tab-activo {
+  color: #a50034;
+  border-bottom: 3px solid #a50034;
+}
+
+.driver-tabs button:hover {
+  background: #f5f5f5;
+}
+
+/* Mensaje */
+.driver-mensaje {
+  padding: 0.8rem 1rem;
+  background: #e8f4fd;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Grid de cards */
+.driver-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+/* Card de despacho */
+.despacho-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.despacho-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.despacho-id {
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.despacho-estado {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+}
+
+.despacho-cliente {
+  font-weight: 600;
+  margin: 0.3rem 0;
+}
+
+.despacho-correo {
+  font-size: 0.82rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.despacho-total {
+  font-weight: 700;
+  color: #a50034;
+  margin-bottom: 0.8rem;
+}
+
+.despacho-productos {
+  list-style: none;
+  padding: 0.5rem 0.8rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.despacho-productos li {
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.despacho-productos li:last-child {
+  border-bottom: none;
+}
+
+/* Botones de acción */
+.despacho-acciones {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.despacho-acciones button {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: #1a1a2e;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.despacho-acciones button:hover {
+  background: #2d2d4e;
+}
+
+.btn-entregado {
+  background: #198754 !important;
+}
+
+.btn-entregado:hover {
+  background: #157347 !important;
+}
+
+/* Calificaciones */
+.calificacion-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.cal-estrellas {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.cal-comentario {
+  font-style: italic;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.cal-cliente {
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.cal-fecha {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 0.3rem;
+}
+
+/* Estados vacíos y loading */
+.driver-vacio {
+  color: #888;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1rem;
+}
+
+.driver-loading,
+.driver-no-auth {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.driver-no-auth button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background: #a50034;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
