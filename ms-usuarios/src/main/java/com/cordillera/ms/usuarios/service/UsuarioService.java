@@ -22,8 +22,6 @@ public class UsuarioService {
     private final AntecedenteRepository antecedenteRepository;
     private final CalificacionRepository calificacionRepository;
 
-    // ── REGISTRO ────────────────────────────────────────────────────────────────
-
     public Usuario registrar(RegistroRequest request) {
 
         if (usuarioRepository.existsByCorreo(request.getCorreo())) {
@@ -52,66 +50,48 @@ public class UsuarioService {
         return guardado;
     }
 
-    // ── LOGIN ───────────────────────────────────────────────────────────────────
-
     public Usuario login(LoginRequest request) {
 
         Usuario usuario = usuarioRepository.findByCorreo(request.getCorreo())
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado: " + request.getCorreo()));
 
         if (!usuario.getPassword().equals(request.getPassword())) {
             throw new RuntimeException("Contraseña incorrecta");
         }
 
-        if (!usuario.getActivo()) {
+        if (!Boolean.TRUE.equals(usuario.getActivo())) {
             throw new RuntimeException("Usuario desactivado");
         }
 
         return usuario;
     }
 
-    // ── LISTAR ──────────────────────────────────────────────────────────────────
-
     public List<Usuario> listarUsuarios() {
         return usuarioRepository.findAll();
     }
-
-    // ── LISTAR DRIVERS ──────────────────────────────────────────────────────────
 
     public List<Usuario> listarDrivers() {
         return usuarioRepository.findByRol("DRIVER");
     }
 
-    // ── BUSCAR POR ID ───────────────────────────────────────────────────────────
-
     public Usuario buscarPorId(Long id) {
-
         return usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
     }
 
-    // ── ELIMINAR ────────────────────────────────────────────────────────────────
-
     public void eliminarUsuario(Long id) {
-
         Usuario usuario = buscarPorId(id);
         usuarioRepository.delete(usuario);
     }
 
-    // ── CAMBIAR ESTADO ──────────────────────────────────────────────────────────
-
     public Usuario cambiarEstado(Long id, Boolean activo) {
-
         Usuario usuario = buscarPorId(id);
         usuario.setActivo(activo);
         return usuarioRepository.save(usuario);
     }
 
-    // ── CALIFICACIONES DRIVER ───────────────────────────────────────────────────
-
     public CalificacionDriver calificarDriver(CalificacionRequest request) {
 
-        // Verificar que el driver existe y tiene rol DRIVER
         Usuario driver = buscarPorId(request.getDriverId());
 
         if (!"DRIVER".equals(driver.getRol())) {

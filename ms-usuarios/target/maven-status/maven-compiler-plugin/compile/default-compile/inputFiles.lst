@@ -5,10 +5,12 @@ C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\jav
 C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\entity\Antecedente.java
 C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\entity\CalificacionDriver.java
 C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\entity\Usuario.java
+C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\exception\GlobalExceptionHandler.java
 C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\kafka\UsuarioEvent.java
 C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\kafka\UsuarioProducer.java
 C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\MsUsuariosApplication.java
 C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\repository\AntecedenteRepository.java
 C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\repository\CalificacionRepository.java
 C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\repository\UsuarioRepository.java
+C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\security\SecurityConfig.java
 C:\Users\AO-Alumno\Desktop\GrupoCordillera-main\backend\ms-usuarios\src\main\java\com\cordillera\ms\usuarios\service\UsuarioService.java

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.cordillera.ms.usuarios.repository.AntecedenteRepositoryTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.866 s -- in com.cordillera.ms.usuarios.repository.AntecedenteRepositoryTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.261 s -- in com.cordillera.ms.usuarios.repository.AntecedenteRepositoryTest

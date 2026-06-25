@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.groupcordillera.ms_reportes.controller.ReporteControllerTest
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.622 s -- in com.groupcordillera.ms_reportes.controller.ReporteControllerTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.712 s -- in com.groupcordillera.ms_reportes.controller.ReporteControllerTest
