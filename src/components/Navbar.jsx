@@ -15,20 +15,29 @@ function Navbar() {
     esAdmin,
     esDriver,
     login,
+    register,
     logout,
   } = useAuth();
 
   if (cargando) return null;
 
+  const irInicio = () => {
+    if (esAdmin) {
+      navigate("/admin/dashboard");
+    } else if (esDriver) {
+      navigate("/driver");
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <nav className="navbar">
-      <div className="navbar-logo" onClick={() => navigate("/")}>
+      <div className="navbar-logo" onClick={irInicio}>
         Grupo Cordillera
       </div>
 
       <div className="navbar-links">
-        <Link to="/">INICIO</Link>
-
         {estaAutenticado && esAdmin ? (
           <>
             <Link to="/admin/productos">INVENTARIO</Link>
@@ -40,6 +49,7 @@ function Navbar() {
           </>
         ) : (
           <>
+            <Link to="/">INICIO</Link>
             <Link to="/carrito">🛒 CARRITO ({cantidadTotal})</Link>
 
             {estaAutenticado && (
@@ -58,7 +68,8 @@ function Navbar() {
             <button className="nav-login" onClick={login}>
               Iniciar sesión
             </button>
-            <button className="nav-register" onClick={login}>
+
+            <button className="nav-register" onClick={register}>
               Registrarse
             </button>
           </>

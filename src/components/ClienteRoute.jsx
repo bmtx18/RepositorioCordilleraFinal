@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
-export default function DriverRoute({ children }) {
-  const { estaAutenticado, cargando, cargandoRol, esDriver, login } = useAuth();
+export default function ClienteRoute({ children }) {
+  const { cargando, cargandoRol, esAdmin, esDriver } = useAuth();
 
   if (cargando || cargandoRol) {
     return (
@@ -12,14 +12,8 @@ export default function DriverRoute({ children }) {
     );
   }
 
-  if (!estaAutenticado) {
-    login();
-    return null;
-  }
-
-  if (!esDriver) {
-    return <Navigate to="/" replace />;
-  }
+  if (esAdmin) return <Navigate to="/admin/dashboard" replace />;
+  if (esDriver) return <Navigate to="/driver" replace />;
 
   return children;
 }

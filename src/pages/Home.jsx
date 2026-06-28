@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCarrito } from "../context/CarritoContext";
+import { useAuth } from "../context/AuthContext";
 import "./Home.css";
 
 const API_PRODUCTOS = "http://localhost:8082/api/productos";
@@ -31,7 +32,18 @@ export default function Home() {
   const [notif, setNotif] = useState(null);
 
   const { agregar } = useCarrito();
+  const { esAdmin, esDriver } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (esAdmin) {
+      navigate("/admin/dashboard", { replace: true });
+    }
+
+    if (esDriver) {
+      navigate("/driver", { replace: true });
+    }
+  }, [esAdmin, esDriver, navigate]);
 
   const cargarProductos = async () => {
     try {
@@ -94,8 +106,7 @@ export default function Home() {
       const proveedor = getProveedor(producto).toLowerCase();
       const categoriaProducto = getCategoria(producto);
 
-      const coincideBusqueda =
-        nombre.includes(q) || proveedor.includes(q);
+      const coincideBusqueda = nombre.includes(q) || proveedor.includes(q);
 
       const coincideCategoria =
         categoria === "Todos" || categoriaProducto === categoria;
@@ -104,12 +115,12 @@ export default function Home() {
     });
   }, [productos, busqueda, categoria]);
 
-  // Producto destacado del hero: el de mayor precio disponible en stock.
-  // Si no hay productos cargados todavía, el hero usa un estado vacío elegante.
   const destacado = useMemo(() => {
     if (productos.length === 0) return null;
+
     const conStock = productos.filter((p) => p.stock > 0);
     const lista = conStock.length > 0 ? conStock : productos;
+
     return lista.reduce(
       (max, p) => (Number(p.precio) > Number(max.precio) ? p : max),
       lista[0]
@@ -119,6 +130,7 @@ export default function Home() {
   const handleAgregar = (e, producto) => {
     e.stopPropagation();
 
+    if (esAdmin || esDriver) return;
     if (producto.stock === 0) return;
 
     agregar(producto);
@@ -173,7 +185,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Panel visual del hero: muestra el producto destacado en vez de quedar vacío */}
         <div className="hero-visual">
           {destacado ? (
             <div
@@ -196,7 +207,9 @@ export default function Home() {
                 <p className="hero-panel-categoria">
                   {getCategoria(destacado) || "Producto"}
                 </p>
+
                 <h3 className="hero-panel-nombre">{destacado.nombre}</h3>
+
                 <p className="hero-panel-precio">
                   ${Number(destacado.precio).toLocaleString("es-CL")}
                 </p>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useCarrito } from "../context/CarritoContext";
+import { useAuth } from "../context/AuthContext";
 import "./DetalleProducto.css";
 
 const API_PRODUCTOS = "http://localhost:8082/api/productos";
@@ -18,15 +19,26 @@ export default function DetalleProducto() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const { esAdmin, esDriver } = useAuth();
+  const { agregar } = useCarrito();
+
   const [producto, setProducto] = useState(null);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(false);
   const [cantidad, setCantidad] = useState(1);
   const [agregado, setAgregado] = useState(false);
 
-  const { agregar } = useCarrito();
-
   useEffect(() => {
+    if (esAdmin) {
+      navigate("/admin/dashboard", { replace: true });
+      return;
+    }
+
+    if (esDriver) {
+      navigate("/driver", { replace: true });
+      return;
+    }
+
     const cargarProducto = async () => {
       setCargando(true);
       setError(false);
@@ -34,6 +46,7 @@ export default function DetalleProducto() {
       try {
         const res = await fetch(`${API_PRODUCTOS}/${id}`);
         if (!res.ok) throw new Error();
+
         const data = await res.json();
         setProducto(data);
       } catch (err) {
@@ -46,7 +59,7 @@ export default function DetalleProducto() {
 
     cargarProducto();
     setCantidad(1);
-  }, [id]);
+  }, [id, esAdmin, esDriver, navigate]);
 
   const getCategoria = (p) => p?.categoria?.nombre || p?.categoria || "";
   const getProveedor = (p) =>
@@ -54,6 +67,7 @@ export default function DetalleProducto() {
   const getImagen = (p) => p?.imagenUrl || p?.imagen || "";
 
   const handleAgregar = () => {
+    if (esAdmin || esDriver) return;
     if (!producto || producto.stock === 0) return;
 
     for (let i = 0; i < cantidad; i++) {
@@ -63,8 +77,6 @@ export default function DetalleProducto() {
     setAgregado(true);
     setTimeout(() => setAgregado(false), 2000);
   };
-
-  // ── ESTADOS ────────────────────────────────────────────────────────────────
 
   if (cargando) {
     return (
@@ -83,6 +95,7 @@ export default function DetalleProducto() {
         <div className="estado-centro">
           <p style={{ fontSize: "3rem" }}>🔍</p>
           <p>No pudimos encontrar este producto.</p>
+
           <Link to="/" className="btn-primary" style={{ marginTop: "1.2rem" }}>
             Volver al catálogo
           </Link>
@@ -90,8 +103,6 @@ export default function DetalleProducto() {
       </div>
     );
   }
-
-  // ── RENDER ────────────────────────────────────────────────────────────────
 
   const precio = Number(producto.precio || 0);
   const imagen = getImagen(producto);
@@ -117,6 +128,7 @@ export default function DetalleProducto() {
           {producto.stock <= 5 && producto.stock > 0 && (
             <span className="badge-stock-bajo">Últimas unidades</span>
           )}
+
           {sinStock && <span className="badge-agotado">Agotado</span>}
         </div>
 
@@ -146,11 +158,14 @@ export default function DetalleProducto() {
           {!sinStock && (
             <div className="detalle-cantidad-box">
               <span>Cantidad</span>
+
               <div className="cantidad-box">
                 <button onClick={() => setCantidad((c) => Math.max(1, c - 1))}>
                   −
                 </button>
+
                 <span>{cantidad}</span>
+
                 <button
                   onClick={() =>
                     setCantidad((c) => Math.min(producto.stock, c + 1))

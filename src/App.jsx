@@ -12,44 +12,39 @@ import Reportes from "./pages/Reportes";
 import AdminLogin from "./pages/AdminLogin";
 import AdminRouten from "./components/AdminRouten";
 import DriverRoute from "./components/DriverRoute";
+import ClienteRoute from "./components/ClienteRoute";
 import DetalleProducto from "./pages/DetalleProducto";
 import Checkout from "./pages/Checkout";
 import Confirmacion from "./pages/Confirmacion";
 import SobreNosotros from "./pages/SobreNosotros";
-
 import MisPedidos from "./pages/MisPedidos";
 
 import { AuthProvider } from "./context/AuthContext";
 
 function App() {
-
   return (
-
     <AuthProvider>
-
       <Navbar />
 
       <Routes>
+        <Route path="/" element={<ClienteRoute><Home /></ClienteRoute>} />
+        <Route path="/producto/:id" element={<ClienteRoute><DetalleProducto /></ClienteRoute>} />
+        <Route path="/carrito" element={<ClienteRoute><Carrito /></ClienteRoute>} />
+        <Route path="/checkout" element={<ClienteRoute><Checkout /></ClienteRoute>} />
+        <Route path="/confirmacion" element={<ClienteRoute><Confirmacion /></ClienteRoute>} />
+        <Route path="/mis-pedidos" element={<ClienteRoute><MisPedidos /></ClienteRoute>} />
 
-        <Route path="/" element={<Home />} />
-        <Route path="/producto/:id" element={<DetalleProducto />} />
         <Route path="/reportes" element={<Reportes />} />
-        <Route path="/carrito" element={<Carrito />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/confirmacion" element={<Confirmacion />} />
         <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-        <Route path="/mis-pedidos" element={<MisPedidos />} />
 
         {/* Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/productos" element={<AdminRouten> <AdminProductos /> </AdminRouten>} />
-        <Route path="/admin/dashboard" element={<AdminRouten> <AdminDashboard /> </AdminRouten>} />
+        <Route path="/admin/productos" element={<AdminRouten><AdminProductos /></AdminRouten>} />
+        <Route path="/admin/dashboard" element={<AdminRouten><AdminDashboard /></AdminRouten>} />
 
         {/* Driver */}
-        <Route path="/driver" element={<DriverRoute> <VistaDriver /> </DriverRoute>} />
-
+        <Route path="/driver" element={<DriverRoute><VistaDriver /></DriverRoute>} />
       </Routes>
-
     </AuthProvider>
   );
 }
